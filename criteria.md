@@ -23,8 +23,12 @@ For at least 4 of my 5 test questions, the retrieved chunks include one that
 contains the answer.
 
 **Why this target:**
-<!-- e.g. "One of my questions is about a topic only two documents mention, so
-     I expect that one to be hard." -->
+
+I chose 4 out of 5 because all five questions have answers somewhere in my
+documents, so the retrieval system should find the right information most of
+the time. I didn't require 5 out of 5 because retrieval may miss the best chunk
+for one question, so 4 out of 5 is still a strong target without requiring
+perfect retrieval.
 
 ---
 
@@ -33,8 +37,12 @@ contains the answer.
 Every answer the system produces names at least one source document.
 
 **Why this target:**
-<!-- Why all five and not four? What about your setup makes that achievable —
-     or what would have to go wrong for it not to be? -->
+
+This is a RAG system, so the answers are supposed to be grounded in the
+documents that were retrieved. I chose every answer because naming a source
+lets someone see where the information came from. If an answer doesn't name any
+source, it becomes harder to verify whether the response is actually based on
+my corpus.
 
 ---
 
@@ -50,47 +58,44 @@ in at least 4 of 5 tries.
      just keep five of them, or the "4 of 5" above has nothing to be 4 of. -->
 
 **Why this target:**
-<!-- What did your distances look like when you set the cutoff in Milestone 4?
-     Was there a clean gap, or did the two groups overlap? -->
+
+The relevance gate is there to stop the system from answering questions when
+my documents don't contain relevant information. I chose 4 out of 5 because I
+want it to reject most unrelated questions, but I allow one failure because the
+similarity scores for in-scope and out-of-scope questions may not separate
+perfectly.
 
 ---
 
 ## 4. Something about your chunks
 
-<!-- YOU WRITE THIS ONE.
-
-     How would you know if your chunks were the right size? Name something
-     countable or observable.
-
-     Examples of the right shape — don't copy these, they should come from
-     what you actually saw in Milestone 3:
-       - "At least 4 of 5 sampled chunks read as a complete thought, with no
-          sentence cut in half at either end."
-       - "No chunk is shorter than 200 characters, since anything below that
-          in my corpus turned out to be a heading with no content under it." -->
-
-
+At least 4 of 5 sampled chunks should stay focused on one main topic. A chunk
+passes when the information in it relates to that topic and fails when it mixes
+unrelated topics.
 
 **Why this target:**
 
-
+I chose this target because focused chunks should help retrieval avoid unrelated
+information. I chose 4 out of 5 because I want a strong standard while allowing
+one imperfect chunk.
 
 ---
 
 ## 5. Your choice
 
-<!-- YOU WRITE THIS ONE TOO.
-
-     Pick something you actually care about getting right. It could be about
-     speed, about refusals, about a particular kind of question your corpus
-     handles badly, about source attribution being correct rather than merely
-     present — anything, as long as it names a number or an observable
-     outcome. -->
+I choose 5 out of 5. For an answer to pass, at least one source document named
+in the answer must contain information that supports the answer's main factual
+claim. If multiple sources are named, I only require at least one of them to
+support the main answer.
 
 
 
 **Why this target:**
 
+I chose this target because my five test questions are based on facts that I
+know exist in the corpus, so I expect every answer to have at least one source
+that actually supports its main claim. A source should provide evidence for the
+answer, not just be related to the same general topic.
 
 
 ---
