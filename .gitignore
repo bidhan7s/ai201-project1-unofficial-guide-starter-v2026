@@ -26,9 +26,17 @@ Thumbs.db
 # NOTE: results/ is deliberately NOT ignored. Your run logs are evidence that
 # the test actually happened, and they're part of what gets graded. Commit them.
 <<<<<<< HEAD
+<<<<<<< HEAD
 wefgwerg
 ewrgewr
 ergwerg
 =======
 reghwerhg
 >>>>>>> 9ca670d (ergweg)
+=======
+reghwerhg
+=======
+dgergww
+gdewrgwe
+>>>>>>> 9e6913f (egew)
+>>>>>>> cb38a66 (egew)
